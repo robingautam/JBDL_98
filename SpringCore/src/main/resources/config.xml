@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <!-- Property injection / setter injection  -->
+
+    <bean id="person" name="per,pers,perso" class="IOC.Person" init-method="initMethod" destroy-method="destroyMethod" autowire="constructor">
+        <property name="name" value="Robin" />
+        <property name="email" value="robin@gmail.com" />
+        <property name="age" value="26" />
+        <property name="aadharCard" value="7362772626652" />
+        <property name="documentList">
+            <list>
+                <value>PanCard</value>
+                <value>AadharCard</value>
+                <value>Driving License</value>
+            </list>
+        </property>
+        <property name="subjects">
+            <set>
+                <value>English</value>
+                <value>English</value>
+                <value>Hindi</value>
+            </set>
+        </property>
+<!--        <property name="address" ref="address" /> &lt;!&ndash; Manual wiring &ndash;&gt;-->
+    </bean>
+
+    <alias name="person" alias="personalias" />
+
+    <bean class="IOC.Address" id="address12">
+        <property name="address" value="Mayur Vihar Ph-1" />
+    </bean>
+
+
+    <!-- Constructor Injection  -->
+
+<!--    <bean class="IOC.Student" id="student" >-->
+<!--        <constructor-arg value="1"  />-->
+<!--        <constructor-arg value="Robin"  />-->
+<!--        <constructor-arg value="robin@gmail.com" />-->
+<!--    </bean>-->
+
+    <bean class="IOC.Student" id="student">
+        <property name="id" value="1" />
+        <property name="name" value="Robin" />
+        <property name="email" value="robin@gmail.com" />
+    </bean>
+
+    <!-- Property schema  -->
+
+<!--    <bean class="IOC.Student" id="stu" p:id="1" p:name="Robin" p:email="robin@gmail.com" />-->
+
+
+
+
+    <bean class="IOC.Human" id="human" parent="student">
+        <property name="property" value="This is Human" />
+    </bean>
+
+</beans>

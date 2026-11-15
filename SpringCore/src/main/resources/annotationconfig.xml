@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean class="annotations.Chef" id="chef">
+        <property name="name" value="Rob" />
+    </bean>
+
+    <bean class="annotations.Oven" id="oven">
+        <property name="ovenName" value="Bajaj's Oven" />
+    </bean>
+
+    <bean class="ambiguity.Jungle" name="jungle">
+
+    </bean>
+
+    <bean class="ambiguity.Dog" name="dog">
+        <property name="name" value="dog" />
+    </bean>
+
+    <bean class="ambiguity.Cat" name="cat">
+        <property name="name" value="cat" />
+    </bean>
+
+
+    <context:annotation-config /> <!-- enable the annotation in spring application-->
+
+
+
+</beans>
